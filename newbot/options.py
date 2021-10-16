@@ -17,16 +17,17 @@ class instaBotOptions():
         sql = "SELECT * FROM `options`"
         excutable.execute(sql)
         users = excutable.fetchall()
-        for user in users:            
-            print("id:")
-            print(user["option_id"])
-            print("owner_insta_user:")
-            print(user["owner_insta_user"])
-            print("owner_insta_pass:")
-            print(user["owner_insta_pass"])
-            print("------------------")
-            print("next user")
-            print("-------------------")
+        # for user in users:            
+            # print("id:")
+            # print(user["option_id"])
+            # print("owner_insta_user:")
+            # print(user["owner_insta_user"])
+            # print("owner_insta_pass:")
+            # print(user["owner_insta_pass"])
+            # print("------------------")
+            # print("next user")
+            # print("-------------------")
+        return users
 
     def add_user(user,password):
         sql = "INSERT INTO `options` (owner_insta_user,owner_insta_pass) VALUES (%s, %s)"
