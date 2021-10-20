@@ -8,8 +8,8 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from pySqlconn import connecting
 from options import instaBotOptions
-from PyQt5.QtWidgets import *
-
+from PyQt5 import QtCore, QtGui, QtWidgets
+app = QtWidgets.QApplication([])
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -23,6 +23,12 @@ class Ui_Dialog(object):
         self.listView_2 = QtWidgets.QListView(self.tab)
         self.listView_2.setGeometry(QtCore.QRect(0, 10, 371, 181))
         self.listView_2.setObjectName("listView_2")
+        model = QtGui.QStandardItemModel()
+        # for i in users:
+        #     item = QtGui.QStandardItem(i)
+        #     model.appendRow(item["owner_insta_user"])
+
+        self.listView_2.setModel(model)
         self.pushButton = QtWidgets.QPushButton(self.tab)
         self.pushButton.setGeometry(QtCore.QRect(270, 210, 75, 31))
         self.pushButton.setObjectName("pushButton")
@@ -60,11 +66,12 @@ class Ui_Dialog(object):
         self.pushButton_2.setText(_translate("Dialog", "تایید"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("Dialog", "افزودن کاربر"))
 
-if __name__ == '__main__':
-
+print(__name__)
+if __name__ == "__main__":
     import sys
-
-    app = QApplication(sys.argv)
-    gallery = Ui_Dialog()
-    gallery.setupUi()
+    # app = QtWidgets.QApplication(sys.argv)
+    Dialog = QtWidgets.QDialog()
+    ui = Ui_Dialog()
+    ui.setupUi(Dialog)
+    Dialog.show()
     sys.exit(app.exec_()) 
